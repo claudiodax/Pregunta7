@@ -1,7 +1,6 @@
 
 import React,{Component} from 'react';
-import Message from './App/components/message/Message';
-import Body from './App/components/body/Body';
+import AgeVal from './App/components/ageVal/ageValidator';
 
 import {StyleSheet,
    TouchableOpacity,
@@ -32,6 +31,7 @@ export default class App extends Component{
     super(props);
     this.state = {
       textValue: '',
+      textResult: '',
       count: 0,
     }
   }
@@ -45,12 +45,22 @@ onPress = () =>{
     count: this.state.count + 1,
   })
 };
+onPressAGE = () =>{
+  if((this.state.textValue)>=18){
+    this.setState({
+      textResult: 'Es mayor de edad',
+    })
+  }else{
+    this.setState({
+      textResult: 'Es menor de edad',
+    })
+  }
+};
 
   render(){
     return(
       <View style={styles.container}>
 
-        <Message/>
 
         <View style={styles.text}>
           <Text >Ingrese su edad</Text>
@@ -59,13 +69,12 @@ onPress = () =>{
         <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1}} 
         onChangeText={text => this.changeTextInput(text)} 
         value={this.state.textValue}/>
-       <Body textBody={'Texto en Body'} onBodyPress={this.onPress}/>
-       
-       {provincias.map( item => (
-         <View>
-           <Text>{item.name}</Text>
-         </View>
-       ) )}
+       <AgeVal
+       onPressAGE={this.onPressAGE}/>
+
+       <View style={styles.text}>
+       <Text >{this.state.textResult}</Text>
+       </View>
        </View>
     );
   }
@@ -85,7 +94,8 @@ const styles = StyleSheet.create({
   },
   text:{
     alignItems:'center',
-    padding: 10,
+    justifyContent: 'center',
+    padding: 15,
   },
   button:{
     top: 10,
