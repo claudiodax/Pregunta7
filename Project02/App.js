@@ -1,5 +1,7 @@
 
 import React,{Component} from 'react';
+import Message from './App/components/message/Message';
+import Body from './App/components/body/Body';
 
 import {StyleSheet,
    TouchableOpacity,
@@ -7,6 +9,23 @@ import {StyleSheet,
      View,
       Image,
       TextInput} from 'react-native';
+
+
+const provincias =[
+  {
+    id:1,
+    name: 'Arequipa',
+  },{
+    id:2,
+    name: 'Puno',
+  },{
+    id:3,
+    name: 'Cuzco',
+  },
+]
+
+
+
 
 export default class App extends Component{
   constructor(props){
@@ -18,6 +37,7 @@ export default class App extends Component{
   }
 
 changeTextInput = text => {
+  console.log(text);
   this.setState({textValue: text});
 };
 onPress = () =>{
@@ -29,23 +49,24 @@ onPress = () =>{
   render(){
     return(
       <View style={styles.container}>
+
+        <Message/>
+
         <View style={styles.text}>
-          <Text style={styles.title}>ATARI GAMES</Text>
+          <Text >Ingrese su edad</Text>
           </View>
 
-          <Image source={require('./img/Atari.png')} style={{width:460}}></Image>
-        <TextInput style={{height:40,borderColor:'lightgray',backgroundColor:'lightgray',borderWidth:1}} 
+        <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1}} 
         onChangeText={text => this.changeTextInput(text)} 
         value={this.state.textValue}/>
-        <TextInput style={{height:40,borderColor:'gray',backgroundColor:'gray',borderWidth:1,marginVertical:5}} 
-        onChangeText={text => this.changeTextInput(text)} 
-        value={this.state.textValue}/>
-        <TouchableOpacity style={styles.button} onPress={this.onPress}>
-          <Text> Login</Text>
-        </TouchableOpacity>
-      </View>
-
-      
+       <Body textBody={'Texto en Body'} onBodyPress={this.onPress}/>
+       
+       {provincias.map( item => (
+         <View>
+           <Text>{item.name}</Text>
+         </View>
+       ) )}
+       </View>
     );
   }
 }
@@ -61,7 +82,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal:10,
-    backgroundColor: 'black',
   },
   text:{
     alignItems:'center',
