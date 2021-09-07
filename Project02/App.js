@@ -1,14 +1,7 @@
-
 import React,{Component} from 'react';
+import {StyleSheet,TouchableOpacity,Text,View,Image,TextInput, FlatList} from 'react-native';
+import OurFlatList from './App/components/ourFlatList/OurFlatList';
 
-
-import {StyleSheet,
-   TouchableOpacity,
-    Text,
-     View,
-      Image,
-      TextInput,
-    FlatList} from 'react-native';
 
 export default class App extends Component{
   constructor(props){
@@ -62,11 +55,7 @@ renderItem = ({item}) =>(
   render(){
     return(
       <View style={styles.container}>
-        <Text>MY_LIST</Text>
-        <FlatList
-        data={this.state.Carros}
-        renderItem={this.renderItem}
-        />
+        <OurFlatList/>
       </View>
     );
   }
