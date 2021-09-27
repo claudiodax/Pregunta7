@@ -5,6 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import OurFlatList from './App/components/ourFlatList/OurFlatList';
 import Detalles from './App/components/Detalles/DetallesLIst';
+import Login from './App/components/Login/Login';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +14,13 @@ export default function App() {
     return(
       <NavigationContainer>
             <Stack.Navigator>
-                                    
+              
+                        <Stack.Screen          
+                        name="Login"          
+                        component={Login}          
+                        options={{ title: 'Login' }}        
+                        />  
+
                         <Stack.Screen          
                         name="List"          
                         component={OurFlatList}          
@@ -24,6 +32,8 @@ export default function App() {
                         component={Detalles}          
                         options={{ title: 'Detalles' }}        
                         />
+
+                        
 
             </Stack.Navigator>    
         </NavigationContainer>

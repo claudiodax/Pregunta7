@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import {StyleSheet,TouchableOpacity,Text,View,Image,TextInput,FlatList} from 'react-native';
+import {StyleSheet,TouchableOpacity,Text,
+    View,Image,TextInput,FlatList, Button} from 'react-native';
 
 const Carros=[
     {
@@ -84,6 +85,7 @@ export default function OurFlatList({ navigation }) {
                         </View>
                         <Text style={styles.TextoCon}>{item.title}</Text>
                     </TouchableOpacity>
+                    
                 </View>
 
             }
@@ -119,12 +121,8 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         fontSize:20,
     },
-
-    container: {
+    container:{
     flex: 1,
     marginTop:20,
     },
-
-   
-    
 });
