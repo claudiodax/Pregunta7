@@ -46,13 +46,13 @@ verification = (user,pass)=>{
           <View style={{alignItems:'center',marginTop:50}}>
           <Text style={{color:'white'}}>Ussername</Text>
           </View>
-        <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1,width:450,marginVertical:15,alignSelf:'center'}} 
+        <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1,marginHorizontal:30,marginVertical:15,alignSelf:'center'}} 
         onChangeText={text => this.changeTextInput(text)} 
         value={this.state.textValue}/>
         <View style={{alignItems:'center'}}>
           <Text style={{color:'white'}} >Password</Text>
           </View>
-        <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1,marginVertical:15,width:450,alignSelf:'center'}} 
+        <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1,marginVertical:15,marginHorizontal:30,alignSelf:'center'}} 
         secureTextEntry={true}
         onChangeText={text => this.changeTextInputTwo(text)} 
         value={this.state.textValueTwo}/>
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
   },
   imagenConEscalado:{
     alignSelf:'center',
-    width:450,
-    margin:5
+    marginHorizontal:20
 },
 });
