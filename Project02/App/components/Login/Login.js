@@ -22,11 +22,9 @@ class Render extends Component{
   }
 
 changeTextInput = text => {
-  console.log(text);
   this.setState({textValue: text,errOne: ""});
 };
 changeTextInputTwo = text => {
-  console.log(text);
   this.setState({textValueTwo: text,errOne: ""});
 };
 
@@ -49,18 +47,23 @@ verification = (user,pass)=>{
         <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1,marginHorizontal:30,marginVertical:15,alignSelf:'center'}} 
         onChangeText={text => this.changeTextInput(text)} 
         value={this.state.textValue}/>
+
         <View style={{alignItems:'center'}}>
           <Text style={{color:'white'}} >Password</Text>
           </View>
+
         <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1,marginVertical:15,marginHorizontal:30,alignSelf:'center'}} 
         secureTextEntry={true}
         onChangeText={text => this.changeTextInputTwo(text)} 
         value={this.state.textValueTwo}/>
+
         <View style={{alignItems:'center'}}>
           <Text style={{color:'red'}} >{this.state.errOne}</Text>
           </View>
+
         <Button title="Login"
             onPress={()=>this.verification(this.state.textValue,this.state.textValueTwo)}/>
+        
         <TouchableOpacity 
         style={{top:10,alignItems:'center',backgroundColor:'cyan',padding:10,marginHorizontal:30}}
         onPress={()=>this.setState({Pass: "admin,123"})}>
