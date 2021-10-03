@@ -2,39 +2,73 @@ import * as React from 'react';
 import {StyleSheet,TouchableOpacity,Text,View,Image,TextInput, FlatList} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import OurFlatList from './App/components/ourFlatList/OurFlatList';
 import Detalles from './App/components/Detalles/DetallesLIst';
 import Login from './App/components/Login/Login';
+import PlayIt from './App/components/video/Video';
+import Configuracion from './App/components/settings/Settings';
 
 
 const Stack = createNativeStackNavigator();
+
+const Tab = createMaterialBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator
+    activeColor="#e91e63"
+    barStyle={{ backgroundColor: 'cyan' }}>
+      <Tab.Screen name="Lista" component={OurFlatList}
+              options={{
+                title: 'Lista',
+                tabBarLabel: 'Lista',
+                tabBarIcon: ({ color }) => (
+                  <Icon name="rocket"  size={30} color="#900" />
+                ),
+              }} />
+      <Tab.Screen name="Video" component={PlayIt} 
+              options={{
+                title: 'Video',
+                tabBarLabel: 'Video',
+                tabBarIcon: ({ color }) => (
+                  <MaterialCommunityIcons name="bell" color={color} size={26} />
+                ),
+              }}/>
+      <Tab.Screen name="Settings" component={Configuracion}
+              options={{
+                title: 'Configuraciones',
+                tabBarLabel: 'Settings',
+                tabBarIcon: ({ color }) => (
+                  <MaterialCommunityIcons name="account" color={color} size={26} />
+                ),
+              }} />
+    </Tab.Navigator>
+  );
+}
 
 export default function App() {
     return(
       <NavigationContainer>
             <Stack.Navigator>
-              
                         <Stack.Screen          
                         name="Login"          
                         component={Login}          
                         options={{ title: 'Login' }}        
                         />  
-
                         <Stack.Screen          
                         name="List"          
-                        component={OurFlatList}          
-                        options={{ title: 'Lista' }}        
+                        component={MyTabs}          
+                        options={{ title: 'Mi Aplicativo' }}        
                         />
-
-                        <Stack.Screen          
-                        name="Detalles"          
-                        component={Detalles}          
-                        options={{ title: 'Detalles' }}        
+                        <Stack.Screen
+                        name="Detalles"
+                        component={Detalles}
+                        options={{ title: 'Detalles' }}
                         />
-
-                        
-
             </Stack.Navigator>    
         </NavigationContainer>
     );
