@@ -41,7 +41,7 @@ verification = (user,pass)=>{
       <View > 
         <Image style={styles.imagenConEscalado} source={require('./img/Atari.png')} />
 
-          <View style={{alignItems:'center',marginTop:50}}>
+          <View style={{alignItems:'center',marginTop:10}}>
           <Text style={{color:'white'}}>Ussername</Text>
           </View>
         <TextInput style={{height:40,width:'70%',borderColor:'gray',backgroundColor:'gray',borderWidth:1,marginVertical:15,alignSelf:'center',marginHorizontal:15}} 
