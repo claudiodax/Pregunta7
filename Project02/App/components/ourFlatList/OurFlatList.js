@@ -20,7 +20,7 @@ const Carros=[
         NumPlazas: 	5,
         NumPuertas: 	5 ,
         },
-},
+    },
     {
       id:2,
       title: 'Carro rojo deportivo',
@@ -69,7 +69,7 @@ const Carros=[
         NumPuertas: 	5 ,
         },
     },
-  ];
+];
 
 export default function OurFlatList({ navigation }) {
     return (
@@ -77,15 +77,14 @@ export default function OurFlatList({ navigation }) {
             <FlatList
                 data={Carros}
                 renderItem = { ({item}) => 
-
-                <View style={styles.contendorItem}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Detalles',{item: item})}>
-                        <View style={styles.imagenConte}>
+                <View >
+                    <TouchableOpacity onPress={() => navigation.navigate('Detalles',{item: item})} style={styles.contendorItem}>
                         <Image source={{uri: item.img}} style={styles.imagen}/>
+                        <View style={styles.TextoCon}>
+                        <Text style={styles.Texto}>{item.title}</Text>
+                        <Text style={styles.SubTexto}>{item.informacion.Marca}</Text>
                         </View>
-                        <Text style={styles.TextoCon}>{item.title}</Text>
                     </TouchableOpacity>
-                    
                 </View>
 
             }
@@ -95,7 +94,6 @@ export default function OurFlatList({ navigation }) {
         
     );
 }
-
 
 const styles = StyleSheet.create({
     imagenConte:{
@@ -113,13 +111,25 @@ const styles = StyleSheet.create({
         margin:5
     },
     contendorItem:{
+        flexDirection:'row',
         backgroundColor: 'lightblue',
-        marginVertical:5,
+        marginVertical:3,
         flex:1,
+        alignSelf:'center',
+        width:'98%',
     },
     TextoCon:{
+        flex:4,
         alignSelf:'center',
         fontSize:20,
+    },
+    Texto:{
+        left:5,
+        fontSize:20,
+    },
+    SubTexto:{
+        left:5,
+        fontSize:15,
     },
     container:{
     flex: 1,

@@ -44,7 +44,7 @@ verification = (user,pass)=>{
           <View style={{alignItems:'center',marginTop:50}}>
           <Text style={{color:'white'}}>Ussername</Text>
           </View>
-        <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1,marginHorizontal:30,marginVertical:15,alignSelf:'center'}} 
+        <TextInput style={{height:40,width:'70%',borderColor:'gray',backgroundColor:'gray',borderWidth:1,marginVertical:15,alignSelf:'center',marginHorizontal:15}} 
         onChangeText={text => this.changeTextInput(text)} 
         value={this.state.textValue}/>
 
@@ -52,7 +52,7 @@ verification = (user,pass)=>{
           <Text style={{color:'white'}} >Password</Text>
           </View>
 
-        <TextInput style={{height:40,borderColor:'gray',backgroundColor:'lightgray',borderWidth:1,marginVertical:15,marginHorizontal:30,alignSelf:'center'}} 
+        <TextInput style={{height:40,width:'70%',borderColor:'gray',backgroundColor:'lightgray',borderWidth:1,marginVertical:15,alignSelf:'center',marginHorizontal:15}} 
         secureTextEntry={true}
         onChangeText={text => this.changeTextInputTwo(text)} 
         value={this.state.textValueTwo}/>
@@ -76,7 +76,7 @@ verification = (user,pass)=>{
 }
 export default function Login({ navigation }) {
     return (
-        <View style={{backgroundColor:'black'}}>
+        <View style={{backgroundColor:'black',width:'100%',height:'100%'}}>
             <Render navigation={navigation}/>
         </View>
         
@@ -114,6 +114,8 @@ const styles = StyleSheet.create({
   },
   imagenConEscalado:{
     alignSelf:'center',
-    marginHorizontal:20
+    marginHorizontal:20,
+    top:15,
+    width:'90%'
 },
 });
